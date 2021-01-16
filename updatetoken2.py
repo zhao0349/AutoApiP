@@ -5,7 +5,9 @@ import os
 from base64 import b64encode
 from nacl import encoding, public
 
-app_num='2'
+app_num=os.getenv('APP_NUM')
+if app_num == '':
+    app_num='1'
 gh_token=os.getenv('GH_TOKEN')
 gh_repo=os.getenv('GH_REPO')
 #ms_token=os.getenv('MS_TOKEN')
@@ -60,6 +62,13 @@ def setsecret(encrypted_value,key_id,puturl):
     
 #调用 
 for a in range(2, int(app_num)+1):
+    if a==1:
+        client_id=os.getenv('CLIENT_ID')
+        client_secret=os.getenv('CLIENT_SECRET')
+        ms_token=os.getenv('MS_TOKEN')
+        puturl=r'https://api.github.com/repos/'+gh_repo+r'/actions/secrets/MS_TOKEN'
+        encrypted_value=createsecret(getpublickey(Auth,geturl),getmstoken(ms_token))
+        setsecret(encrypted_value,key_id,puturl)
     if a==2:
         client_id=os.getenv('CLIENT_ID_2')
         client_secret=os.getenv('CLIENT_SECRET_2')
