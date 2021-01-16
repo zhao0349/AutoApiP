@@ -57,4 +57,3 @@ jobs:
         CLIENT_SECRET_n: ${{ secrets.CLIENT_SECRET_n }}
       run: |
         python runapi.py
-        branch: main
