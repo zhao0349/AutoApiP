@@ -61,7 +61,7 @@ def setsecret(encrypted_value,key_id,puturl):
     return putstatus
     
 #调用 
-for a in range(1, int(app_num)+1):
+for a in range(1, 3):
     if a==1:
         client_id=os.getenv('CLIENT_ID')
         client_secret=os.getenv('CLIENT_SECRET')
