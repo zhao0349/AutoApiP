@@ -9,10 +9,10 @@ if app_num == '':
 access_token_list=['wangziyingwen']*int(app_num)
 #配置选项，自由选择
 config_list = {'每次轮数':3,
-            '是否启动随机时间':'N','延时范围起始':600,'结束':1200,
+            '是否启动随机时间':'Y','延时范围起始':600,'结束':1200,
             '是否开启随机api顺序':'Y',
-            '是否开启各api延时':'N','api延时范围开始':2,'api延时结束':5,
-            '是否开启各账号延时':'N','账号延时范围开始':60,'账号延时结束':120,
+            '是否开启各api延时':'Y','api延时范围开始':2,'api延时结束':5,
+            '是否开启各账号延时':'Y','账号延时范围开始':60,'账号延时结束':120,
             }
             #'是否开启备用应用':'N','是否开启测试':'N'
 api_list = [r'https://graph.microsoft.com/v1.0/me/',
@@ -120,7 +120,7 @@ for c in range(1,config_list['每次轮数']+1):
             else:
                 print("原版顺序,共10个api,自己数")
                 apilist=[5,9,8,1,20,24,23,6,21,22]
-                runapi(apilista,a)
+                runapi(apilist,a)
         else:
             client_id=os.getenv('CLIENT_ID_'+str(a))
             client_secret=os.getenv('CLIENT_SECRET_'+str(a))
