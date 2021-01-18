@@ -69,13 +69,6 @@ for a in range(1, int(app_num)+1):
         puturl=r'https://api.github.com/repos/'+gh_repo+r'/actions/secrets/MS_TOKEN'
         encrypted_value=createsecret(getpublickey(Auth,geturl),getmstoken(ms_token))
         setsecret(encrypted_value,key_id,puturl)
-    if a==2:
-        client_id=os.getenv('CLIENT_ID_2')
-        client_secret=os.getenv('CLIENT_SECRET_2')
-        ms_token=os.getenv('MS_TOKEN_2')
-        puturl=r'https://api.github.com/repos/'+gh_repo+r'/actions/secrets/MS_TOKEN_2'
-        encrypted_value=createsecret(getpublickey(Auth,geturl),getmstoken(ms_token))
-        setsecret(encrypted_value,key_id,puturl)
     else:
         client_id=os.getenv('CLIENT_ID_'+str(a))
         client_secret=os.getenv('CLIENT_SECRET_'+str(a))
